@@ -5,10 +5,10 @@ const config = require('../../config.json');
 export const Help = {
     title: "**Lệnh Bot**",
     help: `===========================
-**Đây là tất cả các lệnh của Bot và hướng dẫn sử dụng Bot**
+**Danh sách lệnh**
 ===========================
     
-> **${config.prefix}food**: __*Bot sẽ chọn cho bạn 1 món ăn ngẫu nhiên.*__
+> **${config.prefix}food**: __*Món ăn ngẫu nhiên.*__
 > **${config.prefix}qr <nội dung>**: __*Tạo mã QR.*__
 > **${config.prefix}help**: __*Thông tin về Bot.*__
     
