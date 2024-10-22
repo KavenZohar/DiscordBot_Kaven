@@ -89,6 +89,7 @@ client.on('messageCreate', async (message) => {
       }
 
       if (message.mentions.has(client.user)) {
+            if (content.includes("@everyone" || content.includes("@here"))) return;
             for (const key in Command.check) {
                 if (Command.check[key](content, client.user.id)) {
                     return;
