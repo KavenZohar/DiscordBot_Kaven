@@ -1,7 +1,7 @@
 import { EmbedBuilder } from 'discord.js';
-import { Foods } from '../modules/foods.js';
+import Foods from '../components/foods.js';
 
-export async function food() {
+async function food() {
     let random = Math.floor(Math.random() * Foods.length);
     let food = Foods[random];
     return new EmbedBuilder()
@@ -9,3 +9,5 @@ export async function food() {
       .setTitle(food.name)
       .setImage(food.image);
   }
+
+export default food;

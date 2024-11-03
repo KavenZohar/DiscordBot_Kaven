@@ -2,7 +2,7 @@ import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
 const config = require('../../config.json');
 
-export const Help = {
+const Help = {
     title: "**Lệnh Bot**",
     help: `===========================
 **Danh sách lệnh**
@@ -14,3 +14,5 @@ export const Help = {
     
     **A custom Bot created by [Kaven](https:/www.facebook.com/KavenZohar)**`
 };
+
+export default Help;

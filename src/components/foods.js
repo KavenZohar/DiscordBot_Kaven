@@ -1,4 +1,4 @@
-export const Foods = [
+const Foods = [
     {
         name: "Bún bò Huế",
         image: "https://vcdn1-dulich.vnecdn.net/2020/01/14/a-nh-2-bu-n-bo-hue-jpg-1578987-4544-9306-1578987578.jpg?w=460&h=0&q=100&dpr=2&fit=crop&s=EAZ12VaUuTcA3vxtM2f63g"
@@ -36,3 +36,5 @@ export const Foods = [
         image: "https://cdn.tcdulichtphcm.vn/upload/1-2024/images/2024-03-15/1710445729-picture-1-1710445636-793-width1200height900.jpg"
     }
 ];
+
+export default Foods;

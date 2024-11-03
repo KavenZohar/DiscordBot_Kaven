@@ -11,10 +11,12 @@ const nameReply = [
                     ' và Khôi 🐧'
                   ];
 
-export async function gemini(content) {
+async function Gemini(content) {
     let i = Math.floor(Math.random() * nameReply.length);
     const result = await model.generateContent(content);
-    const response = await result.response;
+    const response = result.response;
     const text = response.text();
     return text.replace("Google", `Google${nameReply[i]}`);
   }
+
+export default Gemini;

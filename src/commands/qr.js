@@ -1,7 +1,7 @@
 import fs from 'fs';
 import qr from 'qr-image';
 
-export async function QR(text) {
+async function QR(text) {
     const qr_png = qr.image(text, { type: 'png' });
     const qrPath = './qr.png';
     const qrStream = fs.createWriteStream(qrPath);
@@ -12,3 +12,5 @@ export async function QR(text) {
       qr_png.pipe(qrStream);
     });
   }
+
+  export default QR;
