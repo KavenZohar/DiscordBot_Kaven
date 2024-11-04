@@ -14,7 +14,7 @@ const nameReply = [
 async function Gemini(content) {
     let i = Math.floor(Math.random() * nameReply.length);
     const result = await model.generateContent(content);
-    const response = result.response;
+    const response = await result.response;
     const text = response.text();
     return text.replace("Google", `Google${nameReply[i]}`);
   }

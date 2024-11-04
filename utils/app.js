@@ -1,7 +1,7 @@
 import fs from 'fs';
 import { createRequire } from 'module';
 import { EmbedBuilder , AttachmentBuilder } from 'discord.js';
-import checkCommand from './check.js';
+import { checkCommand, check } from './check.js';
 import food from '../src/commands/food.js';
 import help from '../src/commands/help.js';
 import QR from '../src/commands/qr.js';
@@ -28,21 +28,21 @@ const messageEvent = async (message) => {
         // command
         const content = message.content.toLowerCase();
   
-        if (checkCommand.food(content, client.user.id)) {
+        if (checkCommand("food", content, client.user.id)) {
               const Food = await food();
               await message.channel.send({embeds: [Food]}).catch((error) => {
                 console.error(error);
               });
         };
   
-        if (checkCommand.help(content, client.user.id)) {
+        if (checkCommand("help", content, client.user.id)) {
               const Help = help();
               await message.channel.send({embeds: [Help]}).catch((error) => {
                 console.error(error);
               });
         }
   
-        if (checkCommand.qr(content, client.user.id)) {
+        if (checkCommand("qr", content, client.user.id)) {
               const regex = new RegExp(`^(${config.prefix}qr|<@!?${client.user.id}>\\s?qr)`, 'i');
               const matched = content.match(regex);
               let args = "";
@@ -77,11 +77,8 @@ const messageEvent = async (message) => {
   
         if (message.mentions.has(client.user)) {
               if (content.includes("@everyone" || content.includes("@here"))) return;
-              for (const key in checkCommand) {
-                  if (checkCommand[key](content, client.user.id)) {
-                      return;
-                  }
-              }
+              if (check(content, client.user.id)) return;
+
               const regex = new RegExp(`<@!?${client.user.id}>`, 'g');
               const text = message.content.replace(regex, '')
                       .trim()
