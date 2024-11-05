@@ -18,7 +18,6 @@ function Bot(token) {
       });
 
     client.on('messageCreate', messageEvent);
-
     client.login(token);
 }
 
